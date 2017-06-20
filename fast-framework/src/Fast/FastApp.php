@@ -13,6 +13,8 @@ abstract class FastApp
 
     public static $instance;
 
+    const VERSION = "0.6.0";
+
     public static function instance($config = null){
 
         if(FastApp::$instance == null){
