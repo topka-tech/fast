@@ -1,0 +1,25 @@
+{
+    "name": "topka/fast",
+    "description": "PHP Fast Microservice Framework.",
+    "keywords": ["framework", "swoole"],
+    "authors": [
+        {
+            "name": "Hong Yang",
+            "email": "kevin.yanghong@gmail.com"
+        }
+    ],
+    "license": "MIT",
+    "type": "project",
+    "require": {
+        "php": ">=7.1.0",
+        "ext-swoole": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Fast\\": "src/Fast/"
+        },
+        "files": [
+            "src/Fast/Core/Support/helpers.php"
+        ]
+    }
+}

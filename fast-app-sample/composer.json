@@ -1,0 +1,34 @@
+{
+    "name": "topka/fast-app-sample",
+    "description": "Sample for Fast Framework.",
+    "keywords": ["framework", "swoole"],
+    "authors": [
+        {
+            "name": "Hong Yang",
+            "email": "young_hong@qq.com"
+        }
+    ],
+    "license": "MIT",
+    "type": "project",
+    "require": {
+        "php": ">=7.1.0",
+        "ext-swoole": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~6.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Fast\\": "../fast-framework/src/Fast/",
+            "App\\": "App/"
+        },
+        "files": [
+            "../fast-framework/src/Fast/Core/Support/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "Test/"
+        }
+    }
+}
