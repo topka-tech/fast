@@ -81,11 +81,11 @@ vendor | 是 | composer vendor
 
 开发业务接口，参考 "fast-app-sample/App/EndPoints/UserEndPoint.php"，主要流程如下：
 
-1. 在EndPoints文件夹中创建对应的类，继承 “Fast\Core\EndPoint\EndPoint\EndPoint”
+1. 在EndPoints文件夹中创建对应的类，继承 “Fast\Core\EndPoint\EndPoint”
 2. $path成员变量为该 endPoint 的访问路径，如：user
 3. fire() 方法，为“/“ 根路径的处理器，如：user
 4. 以do开头的共有方法，为"/去掉do方法的方法名“的处理器，如：doQueryAdmin() 对应 QueryAdmin
-5. endpoint中的接口方法，可以返回数组类型或stdClass类型。返回值将自动转化为json
+5. endpoint中的接口方法，可以返回数组类型或stdClass类型。接收者将收到包含此返回值信息，以及其他附加信息的ApiResponse对象。
 
 ### 调用业务微服务
 
@@ -108,9 +108,9 @@ $apiRequest = ApiRequest::build()->setServer("127.0.0.1")
 执行以下方法完成调用。
 
 ```
-ClientManager::build()->executeRequests($apiRequest);
-
+$resps = ClientManager::build()->executeRequests($apiRequest);
 ```
+返回值$resps，是一组ApiResponse对象。其中每个ApiResponse对应一个ApiRequest。ApiResponse包含了状态码、返回值等信息。具体ApiResponse所具有的属性，请参考ApiResponse源码。
 
 调用支持多请求同时调用，以及支持同步与异步两种方式。
 
@@ -175,3 +175,5 @@ fast-framework不提供fast服务端在*nix系统层面的daemon化，如有需�
 
 ### 安全
 为了性能，fast对客户端的安全性验证目前只提供简单的“ip白名单”功能。所以我们建议使用者不要将fast服务直接部署在具有公网IP的服务器上。更合理的做法是，将fast服务器部署在内网，保证服务间只在内网的通信。在汽车达人（topka.cn），我们使用k8s的若干基础功能，来实现服务之间有关连接安全审计方面的约束。
+
+
