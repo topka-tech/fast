@@ -66,7 +66,8 @@ $ php fast-demo-laravel/artisan serve
 ```
 ## 使用指南
 
-[详细的使用指南请见此处](doc/usage_cn.md)
+[详细的使用指南请见此处](fast-framework/doc/usage_cn.md)
+[性能测试](fast-framework/doc/benchmark.md)
 
 ## 合作
 有关fast框架的任何问题，欢迎Issue、PR～～
